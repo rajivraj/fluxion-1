@@ -62,17 +62,17 @@ else
 fi
 
 echo -n "**Injection Test:** "
-#aireplay-ng --test "$1" | grep -oE "Injection is working!|No Answer..." || echo -e "\033[31mFailed\033[0m"
+aireplay-ng --test "$1" | grep -oE "Injection is working!|No Answer..." || echo -e "\033[31mFailed\033[0m"
 echo -ne "\n\n"
 
 echo "$HEADER_SIZE XTerm Infos"
 echo "**Version:** $(xterm -version)"
 echo "**Path:** $(ls -L $(which xterm))"
 echo -n "Test: "
-#if xterm -hold -fg "#FFFFFF" -bg "#000000" -title "XServer/XTerm Test" -e "echo \"XServer/XTerm test: close window to continue...\"" &>/dev/null; then echo "XServer/XTerm success!"
-#else
-#	echo -e "\033[31m XServer/XTerm failure!\033[0m"
-#fi
+if xterm -hold -fg "#FFFFFF" -bg "#000000" -title "XServer/XTerm Test" -e "echo \"XServer/XTerm test: close window to continue...\"" &>/dev/null; then echo "XServer/XTerm success!"
+else
+	echo -e "\033[31m XServer/XTerm failure!\033[0m"
+fi
 echo -ne "\n\n"
 
 echo "$HEADER_SIZE HostAPD Info"
