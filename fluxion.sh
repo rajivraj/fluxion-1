@@ -22,7 +22,7 @@ readonly FLUXIONNoiseFloor=-90
 readonly FLUXIONNoiseCeiling=-60
 
 readonly FLUXIONVersion=4
-readonly FLUXIONRevision=14
+readonly FLUXIONRevision=15
 
 # Declare window ration bigger = smaller windows
 FLUXIONWindowRatio=4
@@ -74,7 +74,7 @@ source "$FLUXIONLibPath/FormatUtils.sh"
 source "$FLUXIONLibPath/ColorUtils.sh"
 source "$FLUXIONLibPath/IOUtils.sh"
 source "$FLUXIONLibPath/HashUtils.sh"
-source "$FLUXIONLibPath/Help.sh"
+source "$FLUXIONLibPath/HelpUtils.sh"
 
 # NOTE: These are configured after arguments are loaded (later).
 
