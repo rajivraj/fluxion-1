@@ -1180,12 +1180,15 @@ captive_portal_set_routes() {
   iptables --table nat --delete-chain
   iptables -P FORWARD ACCEPT
 
+  iptables -A INPUT -p tcp --dport 443 -j ACCEPT
+  iptables -A INPUT -p tcp --dport 80 -j ACCEPT
+  iptables -A INPUT -p udp --dport 53 -j ACCEPT
+  iptables -A INPUT -p udp --dport 67 -j ACCEPT
+  
   iptables -t nat -A PREROUTING -p tcp --dport 80 -j DNAT \
     --to-destination $CaptivePortalGatewayAddress:80
   iptables -t nat -A PREROUTING -p tcp --dport 443 -j DNAT \
     --to-destination $CaptivePortalGatewayAddress:443
-  iptables -A INPUT -p tcp --sport 443 -j ACCEPT
-  iptables -A OUTPUT -p tcp --dport 443 -j ACCEPT
   iptables -t nat -A POSTROUTING -j MASQUERADE
 }
 
